@@ -1,15 +1,12 @@
+import { fillTheForm, fillTheForm2 } from '../pages/form.js'; 
+
 describe("Form test", () => {
 	it("Can fill the form", () => {
 		cy.visit("/");
 		cy.get("form");
 
-		cy.get('input[name="name"]')
-			.type("Molly")
-			.should("have.value", "Molly");
-
-		cy.get('input[name="email"]')
-			.type("molly@dev.dev")
-			.should("have.value", "molly@dev.dev");
+		fillTheForm(cy);
+		fillTheForm2(cy);
 
 		cy.get("textarea")
       			.type("Mind you if I ask some silly question?")
